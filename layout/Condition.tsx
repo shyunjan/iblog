@@ -31,7 +31,7 @@ const Condition: NextPage = (): JSX.Element => {
       <ConditionCard
         CardIcon={FavoriteBorder}
         condition="Favorite"
-        stats="89 blogs"
+        stats="26 blogs"
         color="orange"
       />
     </>

@@ -1,33 +1,49 @@
+import { Box, styled, Typography, Stack, Chip, Button } from '@mui/material';
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
 // import Image from 'next/image';
-// import styles from '../styles/Home.module.css';
+
+const BlogSummaryBox = styled(Box)({
+  backgroundColor: 'white',
+  height: '280px',
+  width: '280px',
+  borderRadius: '10px',
+  padding: '6px 10px',
+});
+// const TagChip = styled(Chip)({ color: 'gray' });
+const TagChip = styled(Chip)({ color: 'gray', marginRight: '8px', marginBottom: '8px' });
+const BlogSummaryButton = styled(Button)({
+  width: '120px',
+  borderRadius: '10px',
+  textTransform: 'none',
+  fontWeight: 600,
+  margin: '5px',
+});
 
 const Home: NextPage = (): JSX.Element => {
-  const [today, setToday] = useState('1900-01-01 오전 00:00:00');
-  useEffect(() => {
-    setToday(new Date().toLocaleString());
-  }, []);
-
   return (
     <>
-      <main>
-        <h4>{`Today: ${today}`}</h4>
-        <h4>2</h4>
-      </main>
-
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/assets/images/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
+      <Typography sx={{ m: '5px', mb: '15px', fontWeight: 800, fontSize: 18 }}>
+        Recommended
+      </Typography>
+      <BlogSummaryBox>
+        <Typography sx={{ m: '10px', fontWeight: 600, fontSize: 16 }}>Blog 1 Title</Typography>
+        <Typography sx={{ m: '10px', height: '32%', overflow: 'hidden' }}>
+          블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그
+          1블로그 1 내용... 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1
+          내용...블로그 1 내용...블로그 1 내용...
+        </Typography>
+        <Box sx={{ mt: '10px', mb: '0px' }}>
+          <TagChip label="Node.js" />
+          <TagChip label="HTML" />
+          <TagChip label="CSS" />
+          <TagChip label="React.js" />
+          <TagChip label="Next.js" />
+        </Box>
+        <Stack direction="row" sx={{ justifyContent: 'center' }}>
+          <BlogSummaryButton variant="contained">Edit</BlogSummaryButton>
+          <BlogSummaryButton variant="outlined">Share</BlogSummaryButton>
+        </Stack>
+      </BlogSummaryBox>
     </>
   );
 };
