@@ -20,8 +20,6 @@ export default ({ title, contentsSummary: summary, tags = [] }: BlogSummaryType)
         width: '290px',
         borderRadius: '10px',
         padding: '6px 10px',
-        mr: '20px',
-        mb: '20px',
       }}
     >
       <Typography sx={{ m: '10px', fontWeight: 600, fontSize: 16 }}>{title}</Typography>

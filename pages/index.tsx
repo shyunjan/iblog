@@ -35,15 +35,14 @@ const blogSearchArr: BlogSummaryType[] = [
 const Home: NextPage = (): JSX.Element => {
   return (
     <>
-      <Typography sx={{ m: '5px', mb: '15px', fontWeight: 800, fontSize: 18 }}>
-        Recommended
-      </Typography>
+      <Typography sx={{ m: '5px', fontWeight: 800, fontSize: 18 }}>Recommended</Typography>
       <Box
         sx={{
+          flexGrow: 1,
           display: 'flex',
-          flexDirection: 'row',
+          flexFlow: 'row wrap',
           justifyContent: 'space-between',
-          flexWrap: 'wrap',
+          alignContent: 'space-around',
         }}
       >
         {blogSearchArr.map((b, i) => (

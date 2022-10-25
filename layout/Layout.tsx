@@ -54,7 +54,7 @@ const Layout = ({ children }: Props): JSX.Element => {
               <Condition />
             </Item>
             {/* 결과 내용 영역 */}
-            <Item sx={{ flexGrow: 1 }}>{children}</Item>
+            <Item sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>{children}</Item>
           </FlexGrid>
         </FlexGrid>
         <footer className="footer">
