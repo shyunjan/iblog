@@ -23,8 +23,8 @@ export default ({ title, contentsSummary: summary, tags = [] }: BlogSummaryType)
       }}
     >
       <Typography sx={{ m: '10px', fontWeight: 600, fontSize: 16 }}>{title}</Typography>
-      <Typography sx={{ m: '10px', height: '32%', overflow: 'hidden' }}>{summary}</Typography>
-      <Box sx={{ mt: '10px', mb: '0px' }}>
+      <Typography sx={{ m: '10px', height: '34%', overflow: 'hidden' }}>{summary}</Typography>
+      <Box sx={{ m: '10px', mb: '0px' }}>
         {tags.map((t, i) => (
           <TagChip key={i} label={t} />
         ))}
