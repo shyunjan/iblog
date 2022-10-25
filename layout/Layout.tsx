@@ -46,6 +46,7 @@ const Layout = ({ children }: Props): JSX.Element => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 margin: '20px 0px',
+                mb: '10px',
                 pt: '16px',
                 pb: '16px',
               }}

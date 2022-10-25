@@ -9,7 +9,7 @@ interface Props {
   color?: string;
 }
 
-const ConditionCard = ({ CardIcon, condition, stats, color }: Props): JSX.Element => {
+export default ({ CardIcon, condition, stats, color }: Props): JSX.Element => {
   return (
     <>
       <Card
@@ -49,5 +49,3 @@ const ConditionCard = ({ CardIcon, condition, stats, color }: Props): JSX.Elemen
     </>
   );
 };
-
-export default ConditionCard;

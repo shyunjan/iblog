@@ -1,23 +1,36 @@
 import { Box, styled, Typography, Stack, Chip, Button } from '@mui/material';
 import type { NextPage } from 'next';
+import BlogSummaryBox from '../components/BlogSummaryBox';
+import { BlogSummaryType } from '../types';
 // import Image from 'next/image';
 
-const BlogSummaryBox = styled(Box)({
-  backgroundColor: 'white',
-  height: '280px',
-  width: '280px',
-  borderRadius: '10px',
-  padding: '6px 10px',
-});
-// const TagChip = styled(Chip)({ color: 'gray' });
-const TagChip = styled(Chip)({ color: 'gray', marginRight: '8px', marginBottom: '8px' });
-const BlogSummaryButton = styled(Button)({
-  width: '120px',
-  borderRadius: '10px',
-  textTransform: 'none',
-  fontWeight: 600,
-  margin: '5px',
-});
+/* Blog Summary 검색 결과 배열: 나중에 API로 받아오도록 하자 */
+const blogSearchArr: BlogSummaryType[] = [
+  {
+    title: 'Blog 1 Title',
+    contentsSummary:
+      '블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...',
+    tags: ['Node.js', 'HTML', 'CSS', 'React.js', 'Next.js'],
+  },
+  {
+    title: 'Blog 2 Title',
+    contentsSummary:
+      '블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...',
+    tags: ['Java', 'SpringBoot', 'Hibernate', 'Oracle', 'AWS'],
+  },
+  {
+    title: 'Blog 3 Title',
+    contentsSummary:
+      '블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...',
+    tags: ['Node.js', 'KOA', 'Sequelize', 'MySQL', 'AWS'],
+  },
+  {
+    title: 'Blog 4 Title',
+    contentsSummary:
+      '블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...',
+    tags: ['Node.js', 'NestJS', 'Mongoose', 'MongoDB', 'Redis'],
+  },
+];
 
 const Home: NextPage = (): JSX.Element => {
   return (
@@ -25,25 +38,24 @@ const Home: NextPage = (): JSX.Element => {
       <Typography sx={{ m: '5px', mb: '15px', fontWeight: 800, fontSize: 18 }}>
         Recommended
       </Typography>
-      <BlogSummaryBox>
-        <Typography sx={{ m: '10px', fontWeight: 600, fontSize: 16 }}>Blog 1 Title</Typography>
-        <Typography sx={{ m: '10px', height: '32%', overflow: 'hidden' }}>
-          블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그
-          1블로그 1 내용... 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1
-          내용...블로그 1 내용...블로그 1 내용...
-        </Typography>
-        <Box sx={{ mt: '10px', mb: '0px' }}>
-          <TagChip label="Node.js" />
-          <TagChip label="HTML" />
-          <TagChip label="CSS" />
-          <TagChip label="React.js" />
-          <TagChip label="Next.js" />
-        </Box>
-        <Stack direction="row" sx={{ justifyContent: 'center' }}>
-          <BlogSummaryButton variant="contained">Edit</BlogSummaryButton>
-          <BlogSummaryButton variant="outlined">Share</BlogSummaryButton>
-        </Stack>
-      </BlogSummaryBox>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+        }}
+      >
+        {blogSearchArr.map((b, i) => (
+          <BlogSummaryBox
+            key={i}
+            title={b.title}
+            contentsSummary={b.contentsSummary}
+            tags={b.tags}
+          />
+        ))}
+      </Box>
+      {/* <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap', justifyContent: 'left' }}></Stack> */}
     </>
   );
 };
