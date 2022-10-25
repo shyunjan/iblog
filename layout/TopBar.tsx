@@ -23,8 +23,8 @@ const FlexGrid = styled(Grid)({
 const MenuTab = styled(Tab)({
   textTransform: 'none',
   padding: '0px',
-  margin: '0px 30px',
-  height: '80px',
+  margin: '0px 12px',
+  height: '76px',
 });
 
 const TopBar: NextPage = (): JSX.Element => {

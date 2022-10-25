@@ -44,7 +44,7 @@ const Filter = (): JSX.Element => {
           <ListSubheader
             component="div"
             id="list-header"
-            sx={{ color: 'black', fontWeight: 600, fontSize: 18 }}
+            style={{ color: 'black', fontWeight: 600, fontSize: 18 }}
           >
             Filter
           </ListSubheader>

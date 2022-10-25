@@ -1,33 +1,61 @@
+import { Box, styled, Typography, Stack, Chip, Button } from '@mui/material';
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import BlogSummaryBox from '../components/BlogSummaryBox';
+import { BlogSummaryType } from '../types';
 // import Image from 'next/image';
-// import styles from '../styles/Home.module.css';
+
+/* Blog Summary 검색 결과 배열: 나중에 API로 받아오도록 하자 */
+const blogSearchArr: BlogSummaryType[] = [
+  {
+    title: 'Blog 1 Title',
+    contentsSummary:
+      '블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...블로그 1 내용...',
+    tags: ['Node.js', 'HTML', 'CSS', 'React.js', 'Next.js'],
+  },
+  {
+    title: 'Blog 2 Title',
+    contentsSummary:
+      '블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...',
+    tags: ['Java', 'SpringBoot', 'Hibernate', 'Oracle', 'AWS'],
+  },
+  {
+    title: 'Blog 3 Title',
+    contentsSummary:
+      '블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...블로그 3 내용...',
+    tags: ['Node.js', 'KOA', 'Sequelize', 'MySQL', 'AWS'],
+  },
+  {
+    title: 'Blog 4 Title',
+    contentsSummary:
+      '블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...블로그 4 내용...',
+    tags: ['Node.js', 'NestJS', 'Mongoose', 'MongoDB', 'Redis'],
+  },
+];
 
 const Home: NextPage = (): JSX.Element => {
-  const [today, setToday] = useState('1900-01-01 오전 00:00:00');
-  useEffect(() => {
-    setToday(new Date().toLocaleString());
-  }, []);
-
   return (
     <>
-      <main>
-        <h4>{`Today: ${today}`}</h4>
-        <h4>2</h4>
-      </main>
-
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/assets/images/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
+      <Typography sx={{ m: '5px', mb: '15px', fontWeight: 800, fontSize: 18 }}>
+        Recommended
+      </Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+        }}
+      >
+        {blogSearchArr.map((b, i) => (
+          <BlogSummaryBox
+            key={i}
+            title={b.title}
+            contentsSummary={b.contentsSummary}
+            tags={b.tags}
+          />
+        ))}
+      </Box>
+      {/* <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap', justifyContent: 'left' }}></Stack> */}
     </>
   );
 };

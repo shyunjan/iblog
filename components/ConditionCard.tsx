@@ -1,4 +1,4 @@
-import { SvgIconComponent, StarBorder } from '@mui/icons-material';
+import { SvgIconComponent } from '@mui/icons-material';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { STYLE } from '../constant';
 
@@ -9,21 +9,21 @@ interface Props {
   color?: string;
 }
 
-const ConditionCard = ({ CardIcon, condition, stats, color }: Props): JSX.Element => {
+export default ({ CardIcon, condition, stats, color }: Props): JSX.Element => {
   return (
     <>
       <Card
         elevation={0}
         sx={{
           borderRadius: '20px',
-          width: '280px',
+          width: '252px',
           height: '60px',
           opacity: 0.75,
           backgroundColor: color ?? 'black',
-          mr: '30px',
+          '&: hover': { opacity: [0.7, 0.65, 0.6], cursor: 'pointer' },
         }}
       >
-        <CardContent sx={{ p: '10px 15px', display: 'flex' }}>
+        <CardContent sx={{ p: '10px 12px', display: 'flex' }}>
           <Box
             sx={{
               ...STYLE.FLEX_CENTER,
@@ -49,5 +49,3 @@ const ConditionCard = ({ CardIcon, condition, stats, color }: Props): JSX.Elemen
     </>
   );
 };
-
-export default ConditionCard;
