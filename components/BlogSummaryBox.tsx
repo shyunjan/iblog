@@ -17,14 +17,16 @@ export default ({ title, contentsSummary: summary, tags = [] }: BlogSummaryType)
       sx={{
         backgroundColor: 'white',
         height: '290px',
-        width: '290px',
-        borderRadius: '10px',
+        width: '276px',
+        borderRadius: '15px',
         padding: '6px 10px',
+        mr: '20px',
+        mb: '10px',
       }}
     >
       <Typography sx={{ m: '10px', fontWeight: 600, fontSize: 16 }}>{title}</Typography>
       <Typography sx={{ m: '10px', height: '34%', overflow: 'hidden' }}>{summary}</Typography>
-      <Box sx={{ m: '10px', mb: '0px' }}>
+      <Box sx={{ m: '10px', mb: '0px', height: '29%' }}>
         {tags.map((t, i) => (
           <TagChip key={i} label={t} />
         ))}

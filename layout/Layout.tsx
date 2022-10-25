@@ -11,7 +11,7 @@ type Props = {
 };
 
 const FlexGrid = styled(Grid)({ display: 'flex' });
-const BasicItem = { padding: '4px 10px', borderRadius: '8px' };
+const BasicItem = { padding: '4px 10px', borderRadius: '20px' };
 const LayoutItemWhite = styled(Item)({
   ...BasicItem,
   backgroundColor: 'white',
@@ -28,16 +28,16 @@ const Layout = ({ children }: Props): JSX.Element => {
       </Head>
       <CssBaseline />
       <Container maxWidth="xl">
-        <FlexGrid container spacing={3} height="92vh">
-          <FlexGrid item xs={2}>
+        <FlexGrid container columns={20} spacing={3} height="92vh">
+          <FlexGrid item xs={4}>
             {/* 좌측 필터 옵션 영역 */}
             <LayoutItemWhite sx={{ flexGrow: 1 }}>
               <Filter />
             </LayoutItemWhite>
           </FlexGrid>
-          <FlexGrid item xs={10} sx={{ flexDirection: 'column' }}>
+          <FlexGrid item xs={16} sx={{ flexDirection: 'column' }}>
             {/* Top Bar 영역 */}
-            <LayoutItemWhite>
+            <LayoutItemWhite sx={{ mr: '20px' }}>
               <TopBar />
             </LayoutItemWhite>
             {/* 검색 조건 탭 영역 */}
@@ -45,8 +45,9 @@ const Layout = ({ children }: Props): JSX.Element => {
               sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                margin: '20px 0px',
+                m: '20px 0px',
                 mb: '10px',
+                mr: '20px',
                 pt: '16px',
                 pb: '16px',
               }}
