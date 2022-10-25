@@ -40,7 +40,7 @@ const TopBar: NextPage = (): JSX.Element => {
       sx={{ p: '0px 4px', display: 'flex', alignItems: 'center' }}
     >
       <Grid container spacing={1}>
-        <Grid item xs={7}>
+        <Grid item xs={6}>
           <Tabs
             value={tabValue}
             onChange={onTabChange}
@@ -69,7 +69,7 @@ const TopBar: NextPage = (): JSX.Element => {
             <SearchIcon />
           </IconButton>
         </FlexGrid>
-        <FlexGrid item xs={2}>
+        <FlexGrid item xs={3} sx={{ justifyContent: 'left' }}>
           <Avatar
             alt="My Avatar"
             src="/assets/images/avatar-sample-1.jpg"
