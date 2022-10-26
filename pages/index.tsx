@@ -1,7 +1,8 @@
-import { Box, styled, Typography, Stack, Chip, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import BlogSummaryBox from '../components/BlogSummaryBox';
 import { BlogSummaryType } from '../types';
+import useSWR from 'swr';
 // import Image from 'next/image';
 
 /* Blog Summary 검색 결과 배열: 나중에 API로 받아오도록 하자 */
@@ -39,10 +40,11 @@ const blogSearchArr: BlogSummaryType[] = [
 ];
 
 const Home: NextPage = (): JSX.Element => {
+  const { data: condition } = useSWR('searchCondition');
   return (
     <>
       <Typography sx={{ m: '5px', mb: '15px', fontWeight: 800, fontSize: 18 }}>
-        Recommended
+        {condition ?? 'Recommended'}
       </Typography>
       <Box
         sx={{

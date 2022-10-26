@@ -1,5 +1,6 @@
 import { SvgIconComponent } from '@mui/icons-material';
 import { Box, Card, CardContent, Typography } from '@mui/material';
+import { useSWRConfig } from 'swr';
 import { STYLE } from '../constant';
 
 interface Props {
@@ -10,9 +11,12 @@ interface Props {
 }
 
 export default ({ CardIcon, condition, stats, color }: Props): JSX.Element => {
+  const { mutate } = useSWRConfig();
+  const onClickCondition = () => mutate('searchCondition', condition);
   return (
     <>
       <Card
+        onClick={onClickCondition}
         elevation={0}
         sx={{
           borderRadius: '20px',
