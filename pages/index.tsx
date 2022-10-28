@@ -40,11 +40,11 @@ const blogSearchArr: BlogSummaryType[] = [
 ];
 
 const Home: NextPage = (): JSX.Element => {
-  const { data: condition } = useSWR('searchCondition');
+  const { data: blogsWithCondition } = useSWR('jsonplaceholder.typicode.com/posts');
   return (
     <>
       <Typography sx={{ m: '5px', mb: '15px', fontWeight: 800, fontSize: 18 }}>
-        {condition ?? 'Recommended'}
+        {blogsWithCondition?.searchCondition ?? 'Recommended'}
       </Typography>
       <Box
         sx={{

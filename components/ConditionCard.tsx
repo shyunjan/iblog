@@ -1,18 +1,35 @@
 import { SvgIconComponent } from '@mui/icons-material';
 import { Box, Card, CardContent, Typography } from '@mui/material';
-import { useSWRConfig } from 'swr';
+import useSWR, { useSWRConfig } from 'swr';
 import { STYLE } from '../constant';
+import getBlogs from '../api/service/getBlogsService';
 
 interface Props {
   CardIcon: SvgIconComponent;
-  condition: string;
+  searchCondition: string;
   stats?: string;
   color?: string;
 }
 
-export default ({ CardIcon, condition, stats, color }: Props): JSX.Element => {
-  const { mutate } = useSWRConfig();
-  const onClickCondition = () => mutate('searchCondition', condition);
+export default ({ CardIcon, searchCondition, stats, color }: Props): JSX.Element => {
+  // const { mutate } = useSWRConfig();
+  const {
+    data: blogs,
+    mutate: setBlogs,
+    isValidating: isBlogsValidating,
+  } = useSWR(
+    'jsonplaceholder.typicode.com/posts',
+    async (searchCondition) => await getBlogs(searchCondition)
+  );
+  // const { data: blogsWithCondition, error } = useSWR(
+  //   'searchBlogs',
+  //   async (): Promise<BlogWithConditionType> => ({
+  //     searchCondition,
+  //     blogs: blogs ?? [],
+  //   })
+  // );
+  // const onClickCondition = () => mutate('searchCondition', condition);
+  const onClickCondition = () => setBlogs(blogs);
   return (
     <>
       <Card
@@ -44,7 +61,7 @@ export default ({ CardIcon, condition, stats, color }: Props): JSX.Element => {
             <CardContent sx={{ padding: '1px', margin: '0px 10px' }}>
               <Typography sx={{ color: 'lightgray', fontSize: 12 }}>{stats}</Typography>
               <Typography sx={{ color: 'white', fontSize: 14, fontWeight: 550 }}>
-                {condition}
+                {searchCondition}
               </Typography>
             </CardContent>
           </Card>
