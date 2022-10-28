@@ -12,25 +12,25 @@ const Condition: NextPage = (): JSX.Element => {
     <>
       <ConditionCard
         CardIcon={StarBorder}
-        condition="Top Rated"
+        searchCondition="Top Rated"
         stats="124 blogs"
         color="slateblue"
       />
       <ConditionCard
         CardIcon={WorkspacePremium}
-        condition="Recommended"
+        searchCondition="Recommended"
         stats="52 blogs"
         color="steelblue"
       />
       <ConditionCard
         CardIcon={NewReleasesOutlined}
-        condition="New"
+        searchCondition="New"
         stats="89 blogs"
         color="tomato"
       />
       <ConditionCard
         CardIcon={FavoriteBorder}
-        condition="Favorite"
+        searchCondition="Favorite"
         stats="26 blogs"
         color="orange"
       />
