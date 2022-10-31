@@ -1,8 +1,8 @@
 import { SvgIconComponent } from '@mui/icons-material';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import useSWR, { useSWRConfig } from 'swr';
-import { STYLE } from '../constant';
-import getBlogs from '../api/service/getBlogsService';
+import { STYLE } from '../constants';
+// import getBlogs from '../api/service/getBlogsService';
 
 interface Props {
   CardIcon: SvgIconComponent;
@@ -12,24 +12,17 @@ interface Props {
 }
 
 export default ({ CardIcon, searchCondition, stats, color }: Props): JSX.Element => {
-  // const { mutate } = useSWRConfig();
-  const {
-    data: blogs,
-    mutate: setBlogs,
-    isValidating: isBlogsValidating,
-  } = useSWR(
-    'jsonplaceholder.typicode.com/posts',
-    async (searchCondition) => await getBlogs(searchCondition)
-  );
-  // const { data: blogsWithCondition, error } = useSWR(
-  //   'searchBlogs',
-  //   async (): Promise<BlogWithConditionType> => ({
-  //     searchCondition,
-  //     blogs: blogs ?? [],
-  //   })
+  const { mutate } = useSWRConfig();
+  // const {
+  //   data: blogs,
+  //   mutate: setBlogs,
+  //   isValidating: isBlogsValidating,
+  // } = useSWR(
+  //   'jsonplaceholder.typicode.com/posts',
+  //   async (searchCondition) => await getBlogs(searchCondition)
   // );
-  // const onClickCondition = () => mutate('searchCondition', condition);
-  const onClickCondition = () => setBlogs(blogs);
+  const onClickCondition = () => mutate('searchCondition', searchCondition);
+  // const onClickCondition = () => setBlogs(blogs);
   return (
     <>
       <Card

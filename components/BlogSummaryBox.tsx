@@ -15,8 +15,10 @@ export default ({ title, contentsSummary: summary, tags = [] }: BlogSummaryType)
   return (
     <Box
       sx={{
+        display: 'flex',
+        flexDirection: 'column',
         backgroundColor: 'white',
-        height: '290px',
+        height: '292px',
         width: '276px',
         borderRadius: '15px',
         padding: '6px 10px',
@@ -24,11 +26,13 @@ export default ({ title, contentsSummary: summary, tags = [] }: BlogSummaryType)
         mb: '10px',
       }}
     >
-      <Typography sx={{ m: '10px', fontWeight: 600, fontSize: 16 }}>{title}</Typography>
-      <Typography sx={{ m: '10px', height: '34%', overflow: 'hidden' }}>{summary}</Typography>
-      <Box sx={{ m: '10px', mb: '0px', height: '29%' }}>
+      <Typography sx={{ m: '10px', mb: '2px', fontWeight: 600, fontSize: 16 }}>{title}</Typography>
+      <Typography flexGrow={1} overflow="hidden" m="2px 10px" mb="5px">
+        {summary}
+      </Typography>
+      <Box m="3px 10px 0px 10px">
         {tags.map((t, i) => (
-          <TagChip key={i} label={t} />
+          <TagChip key={i} label={t} sx={{ mb: '5px' }} />
         ))}
       </Box>
       <Stack direction="row" sx={{ justifyContent: 'center' }}>
