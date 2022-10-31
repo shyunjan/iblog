@@ -14,7 +14,7 @@ import {
   Typography,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { STYLE } from '../constant';
+import { STYLE } from '../constants';
 
 const FlexGrid = styled(Grid)({
   ...STYLE.FLEX_CENTER,
